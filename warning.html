@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="http://allfont.net/allfont.css?fonts=roboto-medium" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<style type="text/css">
+		#warningController
+		{
+			width: 360px;
+		}
+		#headerBlock
+		{
+			height: 56px;
+			background-color: #1565C0;
+			box-shadow: 0px 4px rgba(0, 0, 0, 0.24);
+			/*text-align: center;*/
+		}
+		#headerBlock span
+		{
+			color: rgba(255, 255, 255, 1);
+			font-family: 'Roboto Medium', arial;
+			font-weight: 500;
+			font-size: 20px;
+			display: inline-block;
+    		padding-top: 16px;
+    		padding-left: 72px;
+		}
+		#contentBlock
+		{
+			background-color: rgba(48, 48, 48, 1);
+			height: 640px;
+			text-align: center;
+		}
+		#contentHeader
+		{
+			padding-top: 61px;
+			margin: 0px;
+			font-size: 20px;
+			color: rgba(255, 255, 255, 1);
+			font-family: 'Roboto Medium', arial;
+		}
+		#svgIcon
+		{
+			display: inline-block;
+            width: 31.1px;
+            padding-left: 72px;
+            position: relative;
+    		top: 2px;
+		}
+		.progress-circle:before
+		{
+			background-color: rgba(48, 48, 48, 1);
+			font-family: 'Roboto Medium', arial;
+		}
+	</style>
+
+
+
+	<style>
+    #progressPercent
+    {
+        position: absolute;
+        top: 96px;
+        left: 48px;
+        font-size: 30px;
+        color: rgba(255, 255, 255, 1);
+        font-family: 'Roboto Medium', arial;
+        z-index: 3;
+    }
+    #progressWrap
+    { 
+        display: inline-block;
+        padding: 5px;
+        /*background: #eeeeee;*/
+        position: absolute;
+        top: 175px;
+        left: 100px;
+    }
+    #circleBg
+    {
+        position: absolute;
+        z-index: 0;
+        top: 27px;
+        left: -11px;
+        width: 145px;
+        height: 145px;
+        border: 27px solid #3e4042;
+        border-radius: 100%;
+    }
+    #percentBg
+    {
+        position: absolute;
+        z-index: 0;
+        top: 54px;
+        left: 16px;
+        width: 145px;
+        color: white;
+        height: 145px;
+        background: rgba(48, 48, 48, 1);
+        border-radius: 100%;
+    }
+    #myCanvas
+    {
+        position: relative;
+        z-index: 1;
+        transform: rotate(-90deg);
+        position: relative;
+        top: 21px;
+            left: -16.5px;
+    }
+    #progressPercent
+    {
+        font-size: 20px;
+        display: block;
+        width: 80px;
+        text-align: center;
+    }
+    #earthquakeIntensityWrapper
+    {
+        text-align: center;
+        font-family: 'Roboto Medium', arial;
+        color: white;
+        margin-top: 275px;
+        font-size: 20px;
+    }  
+    #earthquakeDescription
+    {
+        opacity: 0.6;
+    }
+</style>
+    <div id="warningController">
+    	<div id="headerBlock">
+    		<span>Sismo en proceso</span>
+    		<svg id="svgIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53.37 38.32"><defs><style>.cls-1{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.3px;}</style></defs><title>Asset 8</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M5.67,20.88s3.5,10.33,16.18,9.84,11.74-3.33,11.74-3.33"/><polyline class="cls-1" points="26.39 25.87 24.34 29.22 26.8 37.67"/><line class="cls-1" x1="30.58" y1="29.64" x2="32.38" y2="33.75"/><polyline class="cls-1" points="13.78 25.07 13.78 31.57 10 37.12"/><polyline class="cls-1" points="40.72 14.46 42.43 8.41 47.42 0.65"/><polyline class="cls-1" points="42.46 15.39 45.24 9.19 52.72 4.57"/><path class="cls-1" d="M30.82,17.31a18,18,0,0,0-12.27-3.17c-7.42.73-7.66,1.38-10.68,2S.65,17.32.65,17.32,6,22.69,11.94,22.49s10.38-.44,12.71-.29a34,34,0,0,1,5.59,1.11"/><path class="cls-1" d="M32.44,15.43c3.09-2.11,7.5-2.56,10.74,1.06C47,20.8,46.75,28.25,44.49,30c-2.55,2-8.15,1.2-12.86-4.64A7,7,0,0,1,32.44,15.43Z"/><path class="cls-1" d="M36.1,20a1.79,1.79,0,0,0-1.55,1.84A3.25,3.25,0,0,0,37.05,25a1.75,1.75,0,0,0,2.05-1.34c.12-1.79-1.8-3.91-3-3.59"/></g></g></svg>
+    	</div>
+
+
+    	<div id="contentBlock">
+    		<div id="contentHeader">Sismo en proceso</div>
+    		<div id="progressWrap">
+    <span id="progressPercent">80%</span> 
+    <div id="circleBg"></div>  
+    <div id="percentBg"></div>
+    <canvas id="myCanvas" width="200" height="200"> 
+       Your browser doesn't support fancy progressbar.
+    </canvas>
+</div>
+    	<p id="earthquakeIntensityWrapper"><span id="earthquakeDescription">Se va a sentir </span><span id="earthquakeIntensity">Fuerte</span></p>
+    	</div>
+    </div>
+</body>
+</html>
